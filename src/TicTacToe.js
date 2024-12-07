@@ -2,7 +2,6 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import "./TicTacToe.css";
 import { Typography } from '@mui/material';
 import confetti from 'canvas-confetti';
 
@@ -222,16 +221,16 @@ function FormRow({gridSize, row, gridValues,isX, setGridValues, setisX, singlePl
   const colorChecker = (col, value) => {
     if(rowCheck(gridValues, gridSize) === row)return {
           backgroundColor: "#32CD32",
-      color: "#ffffff", // White text color
-  borderRadius: "5px",
-  border: '4px solid transparent', // Transparent border to make space for the gradient
-  borderImage: 'linear-gradient(135deg, #32CD32, #00FA9A) 1', // Linear gradient border
-  fontWeight: "bold",
-  textTransform: "uppercase",
-  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
-  '&:hover': {
-    borderImage: 'linear-gradient(135deg, #28a745, #00C97C) 1', // Darker gradient on hover
-    backgroundColor: "#32CD32"
+          color: "#ffffff", // White text color
+          borderRadius: "5px",
+          border: '4px solid transparent', // Transparent border to make space for the gradient
+          borderImage: 'linear-gradient(135deg, #32CD32, #00FA9A) 1', // Linear gradient border
+          fontWeight: "bold",
+          textTransform: "uppercase",
+          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
+          '&:hover': {
+            borderImage: 'linear-gradient(135deg, #28a745, #00C97C) 1', // Darker gradient on hover
+            backgroundColor: "#32CD32"
   },
      };
         if(colCheck(gridValues, gridSize) === col)return {
@@ -273,6 +272,7 @@ function FormRow({gridSize, row, gridValues,isX, setGridValues, setisX, singlePl
   boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
   '&:hover': {
     borderImage: 'linear-gradient(135deg, #28a745, #00C97C) 1', // Darker gradient on hover
+    backgroundColor: "#32CD32"
   },
          };
         if(value === 'X') return {backgroundColor:'#FF8C00','&:hover': {
@@ -295,6 +295,10 @@ function FormRow({gridSize, row, gridValues,isX, setGridValues, setisX, singlePl
 
 
 export const TicTacToe = ({singlePlayer}) => {
+    React.useEffect(()=>{
+      setGridValues(Array(9).fill(null));
+      setisX(true);
+    },[singlePlayer]);
     const gridSize = 3;
     const [isX, setisX] = React.useState(true);
     const [gridValues, setGridValues] = React.useState(Array(9).fill(null));

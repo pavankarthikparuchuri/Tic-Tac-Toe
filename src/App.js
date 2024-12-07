@@ -1,7 +1,6 @@
 import './App.css';
 import { TicTacToe } from './TicTacToe';
-import './TicTacToe.css';
-import { Switch, FormControlLabel, Typography } from '@mui/material';
+import { Switch, FormControlLabel } from '@mui/material';
 import React from 'react';
 import { pink } from '@mui/material/colors';
 import { alpha, styled } from '@mui/material/styles';
@@ -31,7 +30,6 @@ function App() {
       <header className="header">
   <h1 className="title">Tic-Tac-Toe</h1>
   <div className="mode-toggle">
-    <Typography variant="h6">Game Mode</Typography>
     <FormControlLabel
       control={
         <PinkSwitch
